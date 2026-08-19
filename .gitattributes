@@ -1,0 +1,17 @@
+# Normalize line endings from the very first commit.
+# Without this, a Windows checkout commits CRLF and `prettier --check` fails in CI on Linux.
+* text=auto eol=lf
+
+# Never mangle binaries.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.pdf  binary
+
+# Generated. Collapse in diffs and exclude from language statistics.
+pnpm-lock.yaml -diff linguist-generated=true
