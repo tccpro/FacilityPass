@@ -81,6 +81,22 @@ Drizzle ORM · Zod · Vitest · Playwright · pnpm · Vercel.
 
 ---
 
+## Quality gate
+
+Every change must pass, with **no database configured**:
+
+```text
+pnpm lint        ESLint, zero warnings tolerated
+pnpm typecheck   generate Next types, then tsc --noEmit
+pnpm test        unit tests
+pnpm build       production build
+```
+
+That the full gate passes without a `DATABASE_URL` is deliberate and enforced in CI: the
+database dependency is lazy, and nothing evaluates it at build time.
+
+---
+
 ## Status
 
 **Phase 0 — Foundation.** In progress.
@@ -93,27 +109,8 @@ It deliberately contains **no** facility data, no search, no matching engine, no
 authentication, no AI provider, and no migrations for future features.
 
 Phase 0 is complete when another developer can clone this repository, install
-dependencies, run the four quality checks **with no database configured**, and understand
-the architecture.
-
----
-
-## Working in this repository
-
-```text
-phase/*  →  staging  →  main
-```
-
-`main` is approved product state. `staging` is the integrated working state and should
-always be green. `phase/*` branches carry one coherent, independently testable change
-each.
-
-See **[docs/git-workflow.md](docs/git-workflow.md)** for the full branch policy and the
-public/private file boundary, **[docs/cli.md](docs/cli.md)** for the command contract, and
-**[docs/debugging.md](docs/debugging.md)** for how failures are handled.
-
-> Some project documents are intentionally not published here. They hold product strategy
-> rather than engineering detail. Nothing in the public repository depends on them.
+dependencies, run the four quality checks with no database configured, and understand the
+architecture.
 
 ---
 

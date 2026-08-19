@@ -1,14 +1,18 @@
 # ---------------------------------------------------------------------------
-# Private project knowledge — NEVER COMMITTED
+# Documentation is PRIVATE BY DEFAULT.
 #
-# This repository is public. These files hold product strategy, pricing
-# hypotheses and monetization thinking. Backed-up copies live outside the
-# worktree; see CLAUDE.local.md. Verified by the privacy check in
-# docs/git-workflow.md before every push.
+# This repository is public, but the working method behind it is not published:
+# product strategy, pricing hypotheses, engineering workflow, debugging
+# practice, architecture decision records and phase planning all stay local.
+#
+# README.md is the single published document. To publish any other markdown
+# file, add an explicit negation below — deliberately, one file at a time.
+#
+# NOTE: these files exist only in this worktree once ignored. Git-ignored is
+# not backed up. Keep replicated copies outside the repository.
 # ---------------------------------------------------------------------------
-CLAUDE.local.md
-project-guidance.md
-project-guidance-update.md
+*.md
+!/README.md
 
 # ---------------------------------------------------------------------------
 # Secrets
