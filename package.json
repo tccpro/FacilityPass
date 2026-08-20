@@ -1,0 +1,57 @@
+{
+  "name": "facilitypass",
+  "version": "0.1.0",
+  "private": true,
+  "description": "FacilityPass Scout - know where your experiment can actually happen.",
+  "type": "module",
+  "packageManager": "pnpm@11.1.2",
+  "engines": {
+    "node": "24.x",
+    "pnpm": ">=11.1.2"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix",
+    "typegen": "next typegen",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "e2e:install": "playwright install chromium",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "pnpm lint && pnpm typecheck && pnpm test",
+    "verify": "pnpm check && pnpm build",
+    "verify:all": "pnpm format:check && pnpm verify"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "1.1.0",
+    "drizzle-orm": "0.45.2",
+    "next": "16.3.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "24.13.3",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@vitest/coverage-v8": "4.1.11",
+    "drizzle-kit": "0.31.10",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.1",
+    "eslint-config-prettier": "10.1.8",
+    "postcss": "8.5.23",
+    "prettier": "3.9.6",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.67.0",
+    "vitest": "4.1.11"
+  }
+}

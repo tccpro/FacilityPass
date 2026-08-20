@@ -1,0 +1,20 @@
+# Generated and vendored output
+.next/
+out/
+build/
+coverage/
+node_modules/
+playwright-report/
+test-results/
+blob-report/
+pnpm-lock.yaml
+next-env.d.ts
+*.tsbuildinfo
+
+# Private documents that are not ours to reformat
+CLAUDE.md
+CLAUDE.local.md
+docs/
+.claude/
+project-guidance.md
+project-guidance-update.md

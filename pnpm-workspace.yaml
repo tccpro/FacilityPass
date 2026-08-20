@@ -1,0 +1,19 @@
+# pnpm 11 settings file.
+#
+# pnpm 11 no longer reads the `pnpm` field in package.json, and .npmrc is
+# restricted to auth/registry settings, so dependency build approvals live here.
+#
+# `packages:` is deliberately omitted - this is a single-package repository, so
+# only the root package is included.
+
+# pnpm blocks dependency install scripts by default and `strictDepBuilds`
+# defaults to true, which means an unapproved package with an install hook makes
+# `pnpm install` exit non-zero. Only packages that actually declare an install or
+# postinstall hook belong here, each with the parent that pulls it in.
+#
+# The v10 settings this replaces - onlyBuiltDependencies, onlyBuiltDependenciesFile,
+# neverBuiltDependencies, ignoredBuiltDependencies, ignoreDepScripts - were all
+# removed in v11. If you find one of those in a tutorial, it no longer works.
+allowBuilds:
+  esbuild: true # postinstall: node install.js - via drizzle-kit
+  unrs-resolver: true # postinstall: node postinstall.js - via eslint-import-resolver-typescript

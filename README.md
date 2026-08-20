@@ -48,13 +48,13 @@ insufficient, and when a human domain expert has to decide.
 These constraints exist because FacilityPass is a **trust product**. Accuracy, provenance
 and understandable reasoning matter more than impressive-looking automation.
 
-| Rule | Meaning |
-| --- | --- |
-| Unknown stays `UNKNOWN` | Missing information is reported as missing, never inferred into a convenient answer. |
-| Absence of our data is not evidence of absence | That FacilityPass has not curated a capability says something about FacilityPass, not about the facility. |
-| Inferred never renders as confirmed | Evidence strength is shown, not flattened. |
-| A match is not a verification | An algorithmic result is `LIKELY_COMPATIBLE`. Only a facility representative's answer produces verified feasibility. |
-| No invented scientific facts | Capabilities, specifications, access conditions and constraints come from authoritative sources or are marked unknown. |
+| Rule                                           | Meaning                                                                                                                |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Unknown stays `UNKNOWN`                        | Missing information is reported as missing, never inferred into a convenient answer.                                   |
+| Absence of our data is not evidence of absence | That FacilityPass has not curated a capability says something about FacilityPass, not about the facility.              |
+| Inferred never renders as confirmed            | Evidence strength is shown, not flattened.                                                                             |
+| A match is not a verification                  | An algorithmic result is `LIKELY_COMPATIBLE`. Only a facility representative's answer produces verified feasibility.   |
+| No invented scientific facts                   | Capabilities, specifications, access conditions and constraints come from authoritative sources or are marked unknown. |
 
 Status is always communicated by symbol **and** word, never by colour alone.
 
