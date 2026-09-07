@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="FacilityPass">
+  <rect x="3" y="3" width="26" height="26" rx="5" fill="none" stroke="#2b4c66" stroke-width="2.5"/>
+  <path d="M10 20.5 14.5 25 22.5 11" fill="none" stroke="#2b4c66" stroke-width="2.5"
+        stroke-linecap="square" stroke-linejoin="miter"/>
+</svg>

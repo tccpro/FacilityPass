@@ -1,22 +1,33 @@
 # ---------------------------------------------------------------------------
-# Documentation is PRIVATE BY DEFAULT.
+# TWO-LAYER DOCUMENTATION POLICY (governance v3, 2026-09-05)
 #
-# This repository is public, but the working method behind it is not published:
-# product strategy, pricing hypotheses, engineering workflow, debugging
-# practice, architecture decision records and phase planning all stay local.
+# Layer 1 - GLOBAL / SHAREABLE: product and project rules both leads work
+#           from. TRACKED in git and shareable with the Product & Frontend
+#           Lead:
+#             README.md, PROJECT-LOGIC.md, AGENTS.md, CLAUDE.md,
+#             docs/global/**, .github/**
 #
-# README.md is the single published document. To publish any other markdown
-# file, add an explicit negation below — deliberately, one file at a time.
+# Layer 2 - PRIVATE: domain-owner guidelines. NOT stored in the repository:
+#             docs/founder/**  - backend / data / AI / ops (Founder)
+#             docs/product/**  - frontend / design (Product & Frontend Lead)
 #
-# NOTE: these files exist only in this worktree once ignored. Git-ignored is
-# not backed up. Keep replicated copies outside the repository.
+# Replicate private-layer files outside the repository; git-ignored is not
+# backed up.
 # ---------------------------------------------------------------------------
 *.md
 !/README.md
+!/PROJECT-LOGIC.md
+!/AGENTS.md
+!/CLAUDE.md
+!/docs/global/
+!/docs/global/**
+!/.github/
+!/.github/**
 
 # The agent operating rules are workflow too, and settings.json is not markdown
 # so the rule above does not reach it. To publish them, delete this line.
 .claude/
+
 
 # ---------------------------------------------------------------------------
 # Secrets

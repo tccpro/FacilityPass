@@ -1,0 +1,179 @@
+@import 'tailwindcss';
+
+/* ============================================================================
+   FacilityPass design tokens
+
+   Raw values live on :root so a prefers-color-scheme block can override them;
+   @theme inline republishes them as Tailwind theme variables, so utilities
+   (bg-canvas, text-ink, border-line, text-confirmed ...) resolve at USE time and
+   therefore follow the active colour scheme with no toggle to build. Base-layer
+   CSS below references the raw --fp-* names directly, never the --color-* ones.
+
+   Palette intent: scientific, calm, precise. Near-paper neutrals, one restrained
+   instrument-blue accent, strong text contrast. No gradients, no glow, no
+   decorative colour.
+
+   Status colour is ALWAYS secondary to a glyph and a word. These tokens exist to
+   reinforce the symbol, never to carry meaning alone. There is deliberately no
+   "verified" token: a verified-feasibility treatment arrives in Phase 5 with the
+   entity that earns it.
+   ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces */
+  --fp-canvas: oklch(0.985 0.003 250);
+  --fp-surface: oklch(1 0 0);
+  --fp-surface-muted: oklch(0.965 0.004 250);
+  --fp-line: oklch(0.9 0.006 250);
+  --fp-line-strong: oklch(0.8 0.008 250);
+
+  /* Text */
+  --fp-ink: oklch(0.22 0.015 250);
+  --fp-ink-muted: oklch(0.45 0.012 250);
+  --fp-ink-subtle: oklch(0.56 0.01 250);
+
+  /* Accent - one colour, primary action and links only */
+  --fp-accent: oklch(0.47 0.09 235);
+  --fp-accent-strong: oklch(0.395 0.095 235);
+  --fp-on-accent: oklch(0.99 0 0);
+  --fp-focus: oklch(0.55 0.16 250);
+
+  /* Evidence status */
+  --fp-confirmed: oklch(0.42 0.1 165);
+  --fp-confirmed-surface: oklch(0.96 0.03 165);
+  --fp-confirmed-line: oklch(0.855 0.05 165);
+
+  --fp-inferred: oklch(0.46 0.075 285);
+  --fp-inferred-surface: oklch(0.965 0.025 285);
+  --fp-inferred-line: oklch(0.865 0.045 285);
+
+  --fp-unknown: oklch(0.45 0.065 85);
+  --fp-unknown-surface: oklch(0.97 0.032 85);
+  --fp-unknown-line: oklch(0.87 0.05 85);
+
+  --fp-conflict: oklch(0.47 0.16 25);
+  --fp-conflict-surface: oklch(0.962 0.03 25);
+  --fp-conflict-line: oklch(0.86 0.07 25);
+
+  /* Typography - system stacks. No network fetch at build time, no layout shift,
+     no font files in the repo. Revisit with next/font/local only if a brand face
+     is ever commissioned. */
+  --fp-font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif;
+  --fp-font-mono:
+    ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', 'SF Mono', Menlo, Consolas, 'Liberation Mono',
+    monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fp-canvas: oklch(0.19 0.012 250);
+    --fp-surface: oklch(0.232 0.013 250);
+    --fp-surface-muted: oklch(0.262 0.013 250);
+    --fp-line: oklch(0.33 0.014 250);
+    --fp-line-strong: oklch(0.44 0.016 250);
+
+    --fp-ink: oklch(0.955 0.005 250);
+    --fp-ink-muted: oklch(0.78 0.008 250);
+    --fp-ink-subtle: oklch(0.665 0.01 250);
+
+    --fp-accent: oklch(0.76 0.1 230);
+    --fp-accent-strong: oklch(0.835 0.09 230);
+    --fp-on-accent: oklch(0.18 0.02 250);
+    --fp-focus: oklch(0.78 0.13 245);
+
+    --fp-confirmed: oklch(0.82 0.11 165);
+    --fp-confirmed-surface: oklch(0.29 0.045 165);
+    --fp-confirmed-line: oklch(0.41 0.06 165);
+
+    --fp-inferred: oklch(0.83 0.08 285);
+    --fp-inferred-surface: oklch(0.3 0.04 285);
+    --fp-inferred-line: oklch(0.42 0.05 285);
+
+    --fp-unknown: oklch(0.85 0.09 85);
+    --fp-unknown-surface: oklch(0.3 0.04 85);
+    --fp-unknown-line: oklch(0.42 0.055 85);
+
+    --fp-conflict: oklch(0.79 0.13 25);
+    --fp-conflict-surface: oklch(0.3 0.055 25);
+    --fp-conflict-line: oklch(0.43 0.08 25);
+  }
+}
+
+@theme inline {
+  --color-canvas: var(--fp-canvas);
+  --color-surface: var(--fp-surface);
+  --color-surface-muted: var(--fp-surface-muted);
+  --color-line: var(--fp-line);
+  --color-line-strong: var(--fp-line-strong);
+
+  --color-ink: var(--fp-ink);
+  --color-ink-muted: var(--fp-ink-muted);
+  --color-ink-subtle: var(--fp-ink-subtle);
+
+  --color-accent: var(--fp-accent);
+  --color-accent-strong: var(--fp-accent-strong);
+  --color-on-accent: var(--fp-on-accent);
+  --color-focus: var(--fp-focus);
+
+  --color-confirmed: var(--fp-confirmed);
+  --color-confirmed-surface: var(--fp-confirmed-surface);
+  --color-confirmed-line: var(--fp-confirmed-line);
+  --color-inferred: var(--fp-inferred);
+  --color-inferred-surface: var(--fp-inferred-surface);
+  --color-inferred-line: var(--fp-inferred-line);
+  --color-unknown: var(--fp-unknown);
+  --color-unknown-surface: var(--fp-unknown-surface);
+  --color-unknown-line: var(--fp-unknown-line);
+  --color-conflict: var(--fp-conflict);
+  --color-conflict-surface: var(--fp-conflict-surface);
+  --color-conflict-line: var(--fp-conflict-line);
+
+  --font-sans: var(--fp-font-sans);
+  --font-mono: var(--fp-font-mono);
+
+  /* One step above Tailwind's scale, for the single page-level headline. */
+  --text-display: 2.75rem;
+  --text-display--line-height: 1.08;
+  --text-display--letter-spacing: -0.021em;
+
+  --radius-panel: 0.625rem;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--fp-canvas);
+    color: var(--fp-ink);
+    font-family: var(--fp-font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Visible focus everywhere, keyboard-only so pointer users are not shouted at. */
+  :focus-visible {
+    outline: 2px solid var(--fp-focus);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background-color: var(--fp-accent);
+    color: var(--fp-on-accent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

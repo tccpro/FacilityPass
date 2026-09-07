@@ -16,6 +16,11 @@
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --fix",
     "typegen": "next typegen",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:inspect": "tsx --env-file-if-exists=.env.local ./scripts/db/inspect.ts",
+    "data:seed": "tsx --env-file-if-exists=.env.local ./scripts/data/seed-techniques.ts",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -29,9 +34,9 @@
     "verify:all": "pnpm format:check && pnpm verify"
   },
   "dependencies": {
-    "@neondatabase/serverless": "1.1.0",
     "drizzle-orm": "0.45.2",
     "next": "16.3.1",
+    "pg": "8.23.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "zod": "4.4.3"
@@ -40,6 +45,7 @@
     "@playwright/test": "1.62.1",
     "@tailwindcss/postcss": "4.3.3",
     "@types/node": "24.13.3",
+    "@types/pg": "8.23.1",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
     "@vitest/coverage-v8": "4.1.11",
@@ -47,9 +53,12 @@
     "eslint": "9.39.5",
     "eslint-config-next": "16.3.1",
     "eslint-config-prettier": "10.1.8",
+    "fast-check": "4.9.0",
     "postcss": "8.5.23",
     "prettier": "3.9.6",
+    "prettier-plugin-tailwindcss": "0.8.1",
     "tailwindcss": "4.3.3",
+    "tsx": "4.23.12",
     "typescript": "6.0.3",
     "typescript-eslint": "8.67.0",
     "vitest": "4.1.11"

@@ -1,0 +1,36 @@
+name: Decision required
+about: Create a traceable product, architecture, or business decision before coding
+labels: ['type:decision']
+body:
+  - type: dropdown
+    id: decision_type
+    attributes:
+      label: Decision type
+      options: [ADR - Architecture, PDR - Product, BDR - Business]
+    validations: { required: true }
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What decision is blocked and why now?
+    validations: { required: true }
+  - type: textarea
+    id: options
+    attributes:
+      label: Options considered
+    validations: { required: true }
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and constraints
+    validations: { required: true }
+  - type: textarea
+    id: owner
+    attributes:
+      label: Required authority / owner
+      description: Name the domain authority that must decide.
+    validations: { required: true }
+  - type: textarea
+    id: consequence
+    attributes:
+      label: Consequences / reversibility

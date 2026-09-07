@@ -1,0 +1,66 @@
+name: Product / feature work
+about: Define a buildable vertical slice before implementation
+labels: ['type:feature']
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the observed user/business problem. Prefer a real example.
+    validations: { required: true }
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: What must be true for the user when this is complete?
+    validations: { required: true }
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / reason to build
+      description: User evidence, business evidence, defect, approved PDR, or technical necessity.
+    validations: { required: true }
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Primary domain
+      options:
+        [
+          Product/UX,
+          Frontend,
+          Backend/API,
+          Database/Data,
+          Scientific truth,
+          AI product,
+          Security/Platform,
+          Cross-domain,
+        ]
+    validations: { required: true }
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Initial risk
+      options: [R0, R1, R2, R3]
+    validations: { required: true }
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Use observable, testable statements. Include error/empty/unknown states where relevant.
+      placeholder: '- [ ] ...'
+    validations: { required: true }
+  - type: textarea
+    id: outscope
+    attributes:
+      label: Explicitly out of scope
+      description: Prevent AI agents and humans from opportunistically expanding the task.
+    validations: { required: true }
+  - type: textarea
+    id: touchset
+    attributes:
+      label: Expected touch set / conflict risks
+      description: Likely modules/files, migration sequence, global design tokens, shared contracts, or other high-conflict resources.
+  - type: textarea
+    id: decisions
+    attributes:
+      label: Related ADR / PDR / BDR

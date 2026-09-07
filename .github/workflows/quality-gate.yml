@@ -1,0 +1,80 @@
+name: quality gate
+
+on:
+  push:
+    branches: [main, staging, 'phase/**']
+  pull_request:
+    branches: [main, staging]
+
+# DATABASE_URL is NEVER set anywhere in this file. That absence is the point:
+# it is the machine proof of the Phase 0 contract that everything passes with no
+# database configured. If a job ever needs one, that is a deliberate decision
+# that changes the contract, not a convenience.
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # jsdom and several tools pin a Node 24 floor; the app declares engines.node 24.x.
+  NODE_VERSION: '24'
+
+jobs:
+  # The four required checks. Split from the others so a failure names itself:
+  # a formatting drift should not read as a build failure.
+  gate:
+    name: lint · typecheck · test · build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+
+  format:
+    name: format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm format:check
+
+  # Slowest, and needs a browser download. Non-blocking while it proves itself
+  # stable; promote to required once it has.
+  e2e:
+    name: end-to-end
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test:e2e
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

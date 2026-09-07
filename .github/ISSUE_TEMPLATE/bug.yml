@@ -1,0 +1,43 @@
+name: Bug / regression
+about: Capture a reproducible defect and its invariant
+labels: ['type:bug']
+body:
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior / invariant
+    validations: { required: true }
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      placeholder: "1. ...\n2. ...\n3. ..."
+    validations: { required: true }
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: [SEV-3 minor, SEV-2 significant, SEV-1 critical]
+    validations: { required: true }
+  - type: textarea
+    id: impact
+    attributes:
+      label: User / scientific / commercial / security impact
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, screenshots, failing tests, data examples
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I will not weaken/delete the protecting test merely to obtain green CI.
+          required: true
+        - label: If production data, secrets, authorization, or scientific truth may be affected, this will be treated as R3 until reviewed.
+          required: true

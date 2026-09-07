@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "xrd",
+    "name": "X-ray diffraction",
+    "category": "diffraction",
+    "description": "Determines crystalline structure and phase composition from the angles and intensities of diffracted X-rays."
+  },
+  {
+    "slug": "xps",
+    "name": "X-ray photoelectron spectroscopy",
+    "category": "spectroscopy",
+    "description": "Measures elemental composition and chemical state within the top few nanometres of a surface."
+  },
+  {
+    "slug": "sem",
+    "name": "Scanning electron microscopy",
+    "category": "microscopy",
+    "description": "Images surface topography and composition by scanning a focused electron beam across a specimen."
+  },
+  {
+    "slug": "tem",
+    "name": "Transmission electron microscopy",
+    "category": "microscopy",
+    "description": "Images internal structure at high resolution by transmitting electrons through a thin specimen."
+  },
+  {
+    "slug": "afm",
+    "name": "Atomic force microscopy",
+    "category": "scanning probe microscopy",
+    "description": "Maps surface topography and mechanical properties by measuring forces between a sharp probe and the surface."
+  },
+  {
+    "slug": "raman",
+    "name": "Raman spectroscopy",
+    "category": "spectroscopy",
+    "description": "Identifies molecular and crystal vibrations from inelastic scattering of monochromatic light."
+  },
+  {
+    "slug": "xas",
+    "name": "X-ray absorption spectroscopy",
+    "category": "spectroscopy",
+    "description": "Probes local atomic environment and oxidation state from X-ray absorption near and above an element edge."
+  },
+  {
+    "slug": "synchrotron-diffraction",
+    "name": "Synchrotron diffraction",
+    "category": "diffraction",
+    "description": "Diffraction using high-brilliance synchrotron radiation, enabling fast, high-resolution or in-situ measurements."
+  }
+]

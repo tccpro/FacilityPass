@@ -1,0 +1,37 @@
+# FacilityPass CODEOWNERS
+# Replace placeholder handles before enabling required CODEOWNER review.
+# IMPORTANT: multiple owners on one CODEOWNERS pattern are alternatives for GitHub's
+# code-owner approval requirement, not an "all listed owners must approve" rule.
+# R3/cross-authority changes therefore require the explicit sign-off protocol in
+# docs/global/git-workflow.md and the PR template.
+
+# Default technical/product governance owner
+* @asada
+
+# Product/frontend ownership (Product & Frontend Lead)
+/src/app/ @luis
+/src/components/ @luis
+/apps/web/ @luis
+/packages/ui/ @luis
+/docs/product/ @luis
+/docs/global/stages.md @luis
+
+# Founder / architecture / data / trust boundaries (Business & Core Systems Lead)
+/PROJECT-LOGIC.md @asada
+/AGENTS.md @asada
+/CLAUDE.md @asada
+/docs/global/ @asada
+/data/ @asada
+/drizzle/ @asada
+/db/ @asada
+/src/server/ @asada
+/src/modules/ @asada
+/packages/domain/ @asada
+/packages/application/ @asada
+/packages/contracts/ @asada @luis
+/packages/db/ @asada
+/packages/ai/ @asada
+
+# Governance and automation are protected deliberately
+/.github/ @asada
+
